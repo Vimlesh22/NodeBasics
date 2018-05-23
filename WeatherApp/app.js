@@ -13,18 +13,18 @@ const argv = yargs
 .help()
 .alias('help','h')
 .argv;
-// geocode.geocodeAddress(argv.address,(errorMessage,results) => {
-//   if (errorMessage) {
-//     console.log(errorMessage);
-//   }else {
-//     console.log(JSON.stringify(results,undefined,2));
-//   }
-// });
-weather.getWeather(19.1316889,72.9351934,(errorMessage,results) => {
-  if(errorMessage){
+geocode.geocodeAddress(argv.address,(errorMessage,results) => {
+  if (errorMessage) {
     console.log(errorMessage);
-  }else{
-    console.log(results);
+  }else {
+    weather.getWeather(results.latitude,results.longitude,(errorMessage,weatherResult) => {
+      if(errorMessage){
+        console.log(errorMessage);
+      }else{
+        console.log(JSON.stringify(weatherResult,undefined,2));
+      }
+    });
   }
 });
+
 //a6f04b310f721fcd473aa553a0815bc0

@@ -11,7 +11,10 @@ var getWeather = (latitude,longitude,callback) => {
       callback('Unable to fetch weather');
 
     }else if (response.statusCode === 200) {
-      callback(`Temperature is :${body.currently.temperature}`);
+      callback(undefined,{
+        temperature : body.currently.temperature,
+        apperentTemperature: body.currently.apperentTemperature
+      });
     }
   });
 };
