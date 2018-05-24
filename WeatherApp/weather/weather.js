@@ -13,7 +13,7 @@ var getWeather = (latitude,longitude,callback) => {
     }else if (response.statusCode === 200) {
       callback(undefined,{
         temperature : body.currently.temperature,
-        apperentTemperature: body.currently.apperentTemperature
+        apparentTemperature: body.currently.apparentTemperature
       });
     }
   });
