@@ -3,7 +3,7 @@ const fs = require('fs');
 const express = require('express');
 const hbs = require('hbs');
 var app = express();
-
+const port = process.env.PORT || 3000;
 //registering partials and helper file with handlerbars
 hbs.registerPartials(__dirname +'/views/partials');
 hbs.registerHelper('getCurrentYear',() => {
@@ -51,6 +51,6 @@ app.get('/bad',(req,res) =>{
     errorMessage :'Error :Unable to fetch the Data'})
 })
 
-app.listen(3000,() =>{
-  console.log('Server is up on Port 3000');
+app.listen(port,() =>{
+  console.log(`Server is up on Port ${port}`);
 });
