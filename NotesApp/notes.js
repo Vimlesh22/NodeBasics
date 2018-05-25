@@ -1,4 +1,4 @@
-console.log('Starting notes.....');
+
 const fs = require('fs');
 
 
@@ -36,7 +36,7 @@ if(duplicateNotes.length === 0){
 };
 
 var getAll = () => {
-  console.log("Getting all notes");
+  return fetchNotes();
 };
 
 var readNote = (title) => {
@@ -46,6 +46,7 @@ var readNote = (title) => {
 };
 
 var logNote = (note) => {
+  debugger;//break on this line and output notes
   console.log('-------------------------------');
   console.log(`Title : ${note.title}`);
   console.log(`Body : ${note.body}`);
@@ -58,6 +59,7 @@ var removeNote = (title) => {
   saveNotes(removedData);
   return fetchNotesData.length !== removedData.length;
 };
+
 module.exports = {
   addNotes,
   getAll,
