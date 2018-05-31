@@ -36,7 +36,7 @@ NotesController.prototype.getNote = (req,res,next) => {
 };
 
 NotesController.prototype.deleteNote = (req,res,next) => {
-  var id = req.body._id;
+  var id = req.body.noteId;
   notesService.deleteNoteService(id,(result,err) => {
     if(result){
       res.status(200).json({

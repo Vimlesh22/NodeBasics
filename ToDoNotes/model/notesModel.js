@@ -41,7 +41,7 @@ NoteModel.prototype.getNotesModel = function (callback) {
 
 
 NoteModel.prototype.deleteNoteModel = (id,callback) => {
-  Note.deleteOne(id).then((result,err) => {
+  Note.remove({_id:id}).then((result,err) => {
     if(result){
       callback(result);
     }else {
