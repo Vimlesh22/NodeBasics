@@ -39,12 +39,16 @@ UserController.prototype.login = (req,res,next) => {
       res.status(500).json({
         error : err
       })
-    }else {
+    }if(result) {
       res.status(200).json({
-        message :'Successfully data fetched',
-        result : result
+        message :'Logged In Successfull!!!!!!',
+        token : result
       })
-    }
+    }else{
+    res.status(401).json({
+      message : "Login failed!!!!"
+    })
+  }
   });
 }
 
